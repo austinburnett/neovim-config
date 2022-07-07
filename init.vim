@@ -44,12 +44,16 @@ set autoindent
 set expandtab
 filetype plugin indent on
 
-" Color schemes
+" COLOR SCHEMES
 set background=dark
 colorscheme gruvbox
 let g:airline_theme='tomorrow'
 
-" File search find dotfiles
-let g:ctrlp_show_hidden = 1
+" NAVIGATING MULTIPLE PANES
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 syntax on
