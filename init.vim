@@ -26,8 +26,8 @@ Plug 'tpope/vim-fugitive'
 " Auto pairs
 Plug 'jiangmiao/auto-pairs'
 
-" Fuzzy finder file search
-Plug 'kien/ctrlp.vim'
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Vim-Plug-End
 call plug#end()
