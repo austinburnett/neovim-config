@@ -29,20 +29,25 @@ Plug 'jiangmiao/auto-pairs'
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Linter
+Plug 'dense-analysis/ale'
+
 " Vim-Plug-End
 call plug#end()
 
-" Vim Options go below here
+" Vim settings go below here
 "=============================
 
-" VIM INDENTATION
+" VIM OPTIONS
 set mouse=a
-set number
+set relativenumber
 set tabstop=4
 set shiftwidth=4
+set scrolloff=8
 set autoindent
 set expandtab
 filetype plugin indent on
+syntax on
 
 " COLOR SCHEMES
 set background=dark
@@ -56,4 +61,13 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-syntax on
+" PLACE LUA SCRIPT HERE
+"=============================
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true
+    }
+
+}
+EOF
