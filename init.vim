@@ -32,6 +32,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Linter
 Plug 'dense-analysis/ale'
 
+" Fzf
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'sharkdp/fd'
+Plug 'nvim-lua/plenary.nvim'
+
 " Vim-Plug-End
 call plug#end()
 
@@ -40,14 +46,19 @@ call plug#end()
 
 " VIM OPTIONS
 set mouse=a
+set number
 set relativenumber
 set tabstop=4
 set shiftwidth=4
 set scrolloff=8
 set autoindent
 set expandtab
+set ignorecase
+set smartcase
+set hlsearch
 filetype plugin indent on
 syntax on
+let mapleader = ' '
 
 " COLOR SCHEMES
 set background=dark
@@ -60,6 +71,12 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " PLACE LUA SCRIPT HERE
 "=============================
