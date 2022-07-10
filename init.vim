@@ -38,6 +38,9 @@ Plug 'BurntSushi/ripgrep'
 Plug 'sharkdp/fd'
 Plug 'nvim-lua/plenary.nvim'
 
+" Autocomplete (Language Server)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Vim-Plug-End
 call plug#end()
 
@@ -72,11 +75,16 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" TELESCOPE KEYMAPS
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" COC.VIM KEYMAPS
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " PLACE LUA SCRIPT HERE
 "=============================
