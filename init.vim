@@ -57,11 +57,16 @@ set scrolloff=8
 set autoindent
 set expandtab
 set ignorecase
+set nowrap
 set smartcase
-set hlsearch
+set nohlsearch
+set incsearch
 filetype plugin indent on
 syntax on
 let mapleader = ' '
+
+" Give more space for displaying messages
+set cmdheight=2
 
 " COLOR SCHEMES
 set background=dark
