@@ -29,12 +29,14 @@ Plug 'jiangmiao/auto-pairs'
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Syntax highlighting for pug
+Plug 'digitaltoad/vim-pug'
+
 " Linter
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 " Fzf
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'BurntSushi/ripgrep'
 Plug 'sharkdp/fd'
 Plug 'nvim-lua/plenary.nvim'
 
@@ -51,21 +53,38 @@ call plug#end()
 set mouse=a
 set number
 set relativenumber
+set nowrap
+syntax on
+set scrolloff=8
+
+" INDENTATION
+" Unsure whether tabstop and shiftwidth should be 2 or 4, 2 makes multi-line comments in js work
 set tabstop=4
 set shiftwidth=4
-set scrolloff=8
+set softtabstop=4
 set autoindent
 set expandtab
+" new indent options, tesing them
+set smarttab
+set cindent
+
+" FILETYPE
+filetype on
+filetype plugin on
+filetype indent on
+
+" VIM REGEX SEARCHING
+" lowercase searches will be insensitive
+" search with ONE uppercase will be sensitive
 set ignorecase
-set nowrap
 set smartcase
 set nohlsearch
 set incsearch
-filetype plugin indent on
-syntax on
+
+" CHANGE MAP LEADER TO SPACE
 let mapleader = ' '
 
-" Give more space for displaying messages
+" GIVE MORE SPACE FOR DISPLAYING MESSAGES
 set cmdheight=2
 
 " COLOR SCHEMES
@@ -88,8 +107,25 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " COC.VIM KEYMAPS
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " PLACE LUA SCRIPT HERE
 "=============================
@@ -101,3 +137,9 @@ require'nvim-treesitter.configs'.setup {
 
 }
 EOF
+
+" Javascript (tab width 2 char)
+autocmd FILETYPE javascript set tabstop=2
+autocmd FILETYPE javascript set shiftwidth=2
+autocmd FILETYPE javascript set softtabstop=2
+
