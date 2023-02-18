@@ -17,20 +17,15 @@ Plug 'vim-airline/vim-airline-themes'
 " Shows lines that have been added/removed in git
 Plug 'airblade/vim-gitgutter'
 
-" Syntax checker
-Plug 'vim-syntastic/syntastic'
-
 " Git integration
 Plug 'tpope/vim-fugitive'
 
 " Auto pairs
+" Automatically pairs [],{}, ...
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Syntax highlighting for pug
-Plug 'digitaltoad/vim-pug'
 
 " Linter
 "Plug 'dense-analysis/ale'
@@ -40,15 +35,21 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'sharkdp/fd'
 Plug 'nvim-lua/plenary.nvim'
 
-" Autocomplete (Language Server)
+" Autocomplete & Linting (Language Server)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Debugging 
+Plug 'puremourning/vimspector'
+
+" Vim practicing
+Plug 'ThePrimeagen/vim-be-good'
 
 " Vim-Plug-End
 call plug#end()
 
 " Vim settings go below here
 "=============================
-
+let g:vimspector_enable_mappings = 'HUMAN'
 " VIM OPTIONS
 set mouse=a
 set number
@@ -57,6 +58,10 @@ set nowrap
 syntax on
 set scrolloff=8
 
+" Removes screen shifting when symbol/sign appears on lhs
+" Presets sign column to be shown by default instead of auto
+set signcolumn=yes:1
+
 " INDENTATION
 " Unsure whether tabstop and shiftwidth should be 2 or 4, 2 makes multi-line comments in js work
 set tabstop=4
@@ -64,7 +69,6 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set expandtab
-" new indent options, tesing them
 set smarttab
 set cindent
 
@@ -92,12 +96,27 @@ set background=dark
 colorscheme gruvbox
 let g:airline_theme='tomorrow'
 
+" NERDTREE SETTINGS
+let g:NERDTreeShowHidden=1
+
+" NEOVIM TERMINAL MAPPING
+" Use <C-[> to switch to normal mode
+tnoremap <C-[> <C-\><C-N>
+
 " NAVIGATING MULTIPLE PANES
 " Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
+" VERTICAL MOVEMENT
+" Use ctrl-u or ctrl-d to move up or down
+" the page. zz centers the cursor on your screen
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzz
+nnoremap N Nzz
 
 " TELESCOPE KEYMAPS
 " Find files using Telescope command-line sugar.
@@ -134,7 +153,6 @@ require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true
     }
-
 }
 EOF
 
