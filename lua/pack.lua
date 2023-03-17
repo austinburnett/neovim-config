@@ -59,7 +59,6 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-    
   use 'tpope/vim-fugitive'
 
   use 'nvim-tree/nvim-web-devicons'
@@ -70,7 +69,7 @@ return require('packer').startup(function(use)
   use {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",
-      requires = { 
+      requires = {
           "nvim-lua/plenary.nvim",
           "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
           "MunifTanjim/nui.nvim",
