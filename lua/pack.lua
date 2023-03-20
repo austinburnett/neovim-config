@@ -44,12 +44,17 @@ return require('packer').startup(function(use)
       }
   }
 
+  -- Autocomplete pairs i.e ( ), { }, 
   use {
       "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
   }
 
-
+  -- Debugging
+  use {
+      'mfussenegger/nvim-dap'
+  }
+  use { "rcarriga/nvim-dap-ui"}
 
 
   use 'navarasu/onedark.nvim'
@@ -66,6 +71,7 @@ return require('packer').startup(function(use)
   use {
   }
 
+  -- Show File Hierarchy
   use {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",

@@ -1,6 +1,5 @@
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.mouse = a
 
 vim.opt.number = true
 vim.opt.relativenumber = true
