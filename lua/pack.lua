@@ -54,7 +54,11 @@ return require('packer').startup(function(use)
   use {
       'mfussenegger/nvim-dap'
   }
-  use { "rcarriga/nvim-dap-ui"}
+  -- Debug icons for dap-ui and dap-ui
+  use {
+      "rcarriga/nvim-dap-ui",
+      requires = {"ChristianChiarulli/neovim-codicons"}
+  }
 
 
   use 'navarasu/onedark.nvim'
