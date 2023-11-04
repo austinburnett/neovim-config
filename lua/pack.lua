@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Language Parser [Enables syntax highlighting]
   use {
       'nvim-treesitter/nvim-treesitter',
       run = function()
@@ -50,6 +51,11 @@ return require('packer').startup(function(use)
       config = function() require("nvim-autopairs").setup {} end
   }
 
+  -- Indentation indicators
+  use {
+      "lukas-reineke/indent-blankline.nvim",
+  }
+
   -- Debugging
   use {
       'mfussenegger/nvim-dap'
@@ -58,19 +64,21 @@ return require('packer').startup(function(use)
   use {"rcarriga/nvim-dap-ui"}
 
 
+  -- Colorscheme
   use 'navarasu/onedark.nvim'
   use 'glepnir/dashboard-nvim'
 
+  -- Custon nvim status bar
   use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+
+  -- Git integration
   use 'tpope/vim-fugitive'
 
+  -- Extra icons for other plugins to utilize
   use 'nvim-tree/nvim-web-devicons'
-
-  use {
-  }
 
   -- Show File Hierarchy
   use {
@@ -80,8 +88,10 @@ return require('packer').startup(function(use)
           "nvim-lua/plenary.nvim",
           "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
           "MunifTanjim/nui.nvim",
-      }
+      },
+
+      -- Show lines changed in buffers for git
+      use 'airblade/vim-gitgutter'
   }
 
-  use 'airblade/vim-gitgutter'
 end)
