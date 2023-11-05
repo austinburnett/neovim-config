@@ -8,6 +8,6 @@
 -- https://neovim.io/doc/user/lua-guide.html
 
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-    pattern = {"*.lua", "*.cpp"},
-    callback = function() require('ibl').setup() end
+    pattern = {"*.lua", "*.cpp", "*.js", "*.html", "*.css", "*.py"},
+    callback = function() require("ibl").setup() end
 })
