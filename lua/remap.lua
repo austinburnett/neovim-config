@@ -1,8 +1,8 @@
 -- Leader key is spacebar
 vim.g.mapleader = " "
 
--- Copy from clipboard
-vim.keymap.set("n", "<leader>y", "\"*y")
+-- Copy to clipboard
+vim.keymap.set("v", "<leader>y", "\"*y")
 
 -- Paste from clipboard
 vim.keymap.set("n", "<leader>p", "\"*p")
