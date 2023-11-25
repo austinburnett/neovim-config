@@ -23,6 +23,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+      "windwp/nvim-ts-autotag",
+  }
+
+  -- LSP-ZERO
+  use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v1.x',
       requires = {
@@ -66,6 +71,8 @@ return require('packer').startup(function(use)
 
   -- Colorscheme
   use 'navarasu/onedark.nvim'
+
+  -- Neovim Start Screen
   use 'glepnir/dashboard-nvim'
 
   -- Custon nvim status bar

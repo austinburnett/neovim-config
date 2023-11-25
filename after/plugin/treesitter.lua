@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "c", "cpp", "lua", "vim", "python", "help" },
+  ensure_installed = { "c", "cpp", "lua", "vim", "python", "help", "html"},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -15,6 +15,14 @@ require'nvim-treesitter.configs'.setup {
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
 
+  autotag = {
+      enable = true,
+  },
+
+  indent = {
+      enable = true
+  },
+
   highlight = {
     enable = true,
 
@@ -23,7 +31,7 @@ require'nvim-treesitter.configs'.setup {
     -- the name of the parser)
     -- list of language that will be disabled
     disable = { "c", "rust" },
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    --[[ Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
         local max_filesize = 100 * 1024 -- 100 KB
         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
@@ -31,6 +39,7 @@ require'nvim-treesitter.configs'.setup {
             return true
         end
     end,
+    ]]
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
