@@ -91,6 +91,6 @@ return require("packer").startup(function(use)
     }
 
     -- Show lines changed in buffers for git
-    --use("airblade/vim-gitgutter");
+    use("airblade/vim-gitgutter");
 
 end)
