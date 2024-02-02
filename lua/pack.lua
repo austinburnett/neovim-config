@@ -52,7 +52,7 @@ return require("packer").startup(function(use)
     -- Autocomplete pairs i.e ( ), { }, 
     use {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        config = function() require("nvim-autopairs").setup() end
     }
 
     -- Indentation indicators
