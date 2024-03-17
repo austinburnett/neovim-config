@@ -11,13 +11,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-if(vim.filetype.match({filename = "*.js"})) then
-  vim.opt.softtabstop = 2
-  vim.opt.shiftwidth = 2
-end
-
 vim.opt.autoindent = true
 
+-- Regex / Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false

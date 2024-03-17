@@ -25,13 +25,16 @@ return require("packer").startup(function(use)
     -- Autocomplete tags in markup languages (eg. html)
     use("windwp/nvim-ts-autotag");
 
-    -- LSP
+    -- Collection of packages for LSP setup
+    -- lsp-zero is used for LSP configurations
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
-            -- LSP Support
+            -- LSP Config Support
             {'neovim/nvim-lspconfig'},             -- Required
+            
+            -- Manage Language Server Installations
             {'williamboman/mason.nvim'},           -- Optional
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
