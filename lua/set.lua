@@ -6,6 +6,7 @@ vim.opt.relativenumber = true
 
 vim.opt.wrap = false
 
+-- All things tabs
 vim.opt.tabstop = 8
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

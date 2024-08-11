@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
         requires = {
             -- LSP Config Support
             {'neovim/nvim-lspconfig'},             -- Required
-            
+
             -- Manage Language Server Installations
             {'williamboman/mason.nvim'},           -- Optional
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
@@ -96,4 +96,9 @@ return require("packer").startup(function(use)
     -- Show lines changed in buffers for git
     use("airblade/vim-gitgutter");
 
+    -- Markdown Viewer
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)

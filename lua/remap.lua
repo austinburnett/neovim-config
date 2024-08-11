@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
--- Navigating window splits
+-- Navigating window splits (Very nicee)
 vim.keymap.set("n", "<C-h>", ":wincmd h<cr>", {
     silent = true
 })
@@ -30,9 +30,9 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<cr>", {
     silent = true
 })
 
--- Resizing window splits
-vim.keymap.set("n", "<C-,>", "<C-W><")
-vim.keymap.set("n", "<C-.>", "<C-W>>")
+-- Resizing window splits (Very nicee)
+vim.keymap.set("n", "<C-,>", "<C-W>5<")
+vim.keymap.set("n", "<C-.>", "<C-W>5>")
 
 vim.keymap.set("n", "<C-s>", "<C-W>-")
 vim.keymap.set("n", "<C-t>", "<C-W>+")
@@ -41,8 +41,6 @@ vim.keymap.set("n", "<C-t>", "<C-W>+")
 vim.keymap.set("n", "`", ":NeoTreeFocusToggle <cr>")
 
 -- Debuging via dap
--- Found at: https://www.nerdfonts.com/cheat-sheet and at: https://github.com/microsoft/vscode-icons
--- https://www.figma.com/file/h0NdIjcCND8F0qpVBs5ewl/Visual-Studio-Code-Icons-(Community)?node-id=0-1&t=pjrBOdMQZL1o1qPm-0
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped',{ text ='', texthl ='', linehl='Search', numhl =''})
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
