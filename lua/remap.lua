@@ -31,11 +31,19 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<cr>", {
 })
 
 -- Resizing window splits (Very nicee)
-vim.keymap.set("n", "<C-,>", "<C-W>5<")
-vim.keymap.set("n", "<C-.>", "<C-W>5>")
+-- MacOS doesn't play well with the alt remaps: <M-symbol>
+-- Check to see what symbol MacOS sends by putting nvim in
+-- insert mode and typing in Ctrl-V <Alt-,>
 
-vim.keymap.set("n", "<C-s>", "<C-W>-")
-vim.keymap.set("n", "<C-t>", "<C-W>+")
+--vim.keymap.set("n", "<M-,>", "<C-W>5<")
+vim.keymap.set("n", "≤", "<C-W>5<")
+--vim.keymap.set("n", "<M-.>", "<C-W>5>")
+vim.keymap.set("n", "≥", "<C-W>5>")
+
+--vim.keymap.set("n", "<M-s>", "<C-W>-")
+vim.keymap.set("n", "ß", "<C-W>-")
+--vim.keymap.set("n", "<M-t>", "<C-W>+")
+vim.keymap.set("n", "†", "<C-W>+")
 
 -- Show file hierarchy
 vim.keymap.set("n", "`", ":NeoTreeFocusToggle <cr>")
