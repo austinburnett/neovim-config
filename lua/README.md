@@ -1,7 +1,7 @@
 # File Guide:
 
-This document contains information for the purpose each of
-the file in this directory.
+This document contains information on the purpose of each
+file in this directory.
 
 ### set.lua
 
