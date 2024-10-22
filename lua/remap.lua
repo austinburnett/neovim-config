@@ -30,6 +30,9 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<cr>", {
     silent = true
 })
 
+-- Go from terminal mode to Normal mode
+vim.keymap.set("t", "<C-[>", "<C-\\><C-N>")
+
 -- Resizing window splits (Very nicee)
 -- MacOS doesn't play well with the alt remaps: <M-symbol>
 -- Check to see what symbol MacOS sends by putting nvim in
@@ -43,13 +46,13 @@ vim.keymap.set("n", "≥", "<C-W>5>")
 --vim.keymap.set("n", "<M-s>", "<C-W>-")
 vim.keymap.set("n", "ß", "<C-W>-")
 --vim.keymap.set("n", "<M-t>", "<C-W>+")
-vim.keymap.set("n", "†", "<C-W>+")
+vim.keymap.set("n", "∫", "<C-W>+")
 
 -- Show file hierarchy
 vim.keymap.set("n", "`", ":NeoTreeFocusToggle <cr>")
 
 -- Debuging via dap
-vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped',{ text ='', texthl ='', linehl='Search', numhl =''})
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 vim.keymap.set('n', '<F9>', function() require('dap').toggle_breakpoint() end)
