@@ -58,14 +58,19 @@ return require("packer").startup(function(use)
         config = function() require("nvim-autopairs").setup() end
     }
 
-    -- Indentation indicators
+    -- Identifier for blocks
     use("lukas-reineke/indent-blankline.nvim");
 
     -- Debugging
-    use("mfussenegger/nvim-dap");
+    use('mfussenegger/nvim-dap');
 
     -- Debug ui for dap
-    use("rcarriga/nvim-dap-ui");
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires= {
+            "nvim-neotest/nvim-nio"
+        }
+    }
 
     -- Colorscheme
     use("navarasu/onedark.nvim");
@@ -75,9 +80,6 @@ return require("packer").startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-
-    -- Git integration
-    use("tpope/vim-fugitive");
 
     -- Extra icons for other plugins to utilize
     use("nvim-tree/nvim-web-devicons");
@@ -92,6 +94,9 @@ return require("packer").startup(function(use)
             "MunifTanjim/nui.nvim",
         },
     }
+
+    -- Git integration
+    use("tpope/vim-fugitive");
 
     -- Show lines changed in buffers for git
     use("airblade/vim-gitgutter");
