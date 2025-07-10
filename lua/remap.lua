@@ -51,6 +51,9 @@ vim.keymap.set("n", "∫", "<C-W>+")
 -- Show file hierarchy
 vim.keymap.set("n", "`", ":NeoTreeFocusToggle <cr>")
 
+-- Lsp Remaps
+vim.keymap.set("n", "gd", vim.lsp.buf.declaration)
+
 -- Debuging via dap
 vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped',{ text ='', texthl ='', linehl='Search', numhl =''})
